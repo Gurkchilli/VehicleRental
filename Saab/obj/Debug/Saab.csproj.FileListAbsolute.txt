@@ -9,3 +9,4 @@ D:\SAABTest\Saab\Saab\obj\Debug\Saab.csproj.GenerateResource.cache
 D:\SAABTest\Saab\Saab\obj\Debug\Saab.csproj.CoreCompileInputs.cache
 D:\SAABTest\Saab\Saab\obj\Debug\Saab.exe
 D:\SAABTest\Saab\Saab\obj\Debug\Saab.pdb
+D:\SAABTest\Saab\Saab\obj\Debug\Saab.Form1.resources

@@ -74,6 +74,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VehicleDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VehicleDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehicleDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +110,17 @@
     </None>
     <None Include="VehicleDatabaseDataSet.xss">
       <DependentUpon>VehicleDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VehicleDatabaseDataSet1.xsc">
+      <DependentUpon>VehicleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VehicleDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehicleDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VehicleDatabaseDataSet1.xss">
+      <DependentUpon>VehicleDatabaseDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
