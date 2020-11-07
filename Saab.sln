@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saab", "Saab\Saab.csproj", "{809A33CF-EBB6-48AC-B869-6F1B8A6F3663}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{809A33CF-EBB6-48AC-B869-6F1B8A6F3663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809A33CF-EBB6-48AC-B869-6F1B8A6F3663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809A33CF-EBB6-48AC-B869-6F1B8A6F3663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809A33CF-EBB6-48AC-B869-6F1B8A6F3663}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8764B5A9-FA29-49B7-BF79-046511FB86AD}
+	EndGlobalSection
+EndGlobal
