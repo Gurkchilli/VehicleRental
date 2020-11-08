@@ -42,38 +42,39 @@ namespace Saab
             //The TotalCost column is ReadOnly, which is indicated by making the background color gray.
             this.registerReturnDataGridView.Columns["TotalCost"].DefaultCellStyle.BackColor = Color.LightGray;
 
+            //We iterate through both rentData and registerdata to match the booking numbers.
+            var rentData = registerRentalDataGridView.Rows;
+            var returnData = registerReturnDataGridView.Rows;
 
-            //Some pre-made values are given when the Form is Loaded, we calculate these first
-            foreach (DataGridViewRow row in registerReturnDataGridView.Rows)
+            //The last row is always empty
+            for (int i = 0; i < returnData.Count - 1; i++)
             {
-                //In order to ignore empty rows
-                if (row.Cells["BookingNumber"].Value != null)
+                for (int j = 0; j < rentData.Count - 1; j++)
                 {
-                    int bookingNumber = (int)row.Cells["BookingNumber"].Value;
-                    int returnDistance = (int)row.Cells["CurrentDistance"].Value;
-
-                    DateTime dateReturn = 
-                        DateConcat((DateTime)row.Cells["Date"].Value, 
-                                   DateTime.ParseExact(row.Cells["Time"].Value.ToString(),
-                                   "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
-
-                    row.Cells["TotalCost"].Value = bookingNumber;
-
-                    if (bookingNumber.Equals("Småbil"))
+                    if ((int)rentData[j].Cells["RentBookingNumber"].Value == (int)returnData[i].Cells["BookingNumber"].Value)
                     {
-                        row.Cells["TotalCost"].Value = SmallCar(bookingNumber, dateReturn);
-                    }
-                    else if (bookingNumber.Equals("Van"))
-                    {
-                        row.Cells["TotalCost"].Value = Van(bookingNumber, dateReturn);
-                    }
-                    else if (bookingNumber.Equals("Minibuss"))
-                    {
-                        row.Cells["TotalCost"].Value = Minibuss(bookingNumber, dateReturn);
+                        DataGridViewRow rentRow = rentData[j];
+                        DataGridViewRow returnRow = returnData[i];
+
+                        if (rentData[j].Cells["RegisterVehicleCategory"].Value.Equals("Småbil"))
+                        {
+                            returnData[i].Cells["TotalCost"].Value = SmallCar(rentRow, returnRow);
+                        }
+                        else if (rentData[j].Cells["RegisterVehicleCategory"].Value.Equals("Van"))
+                        {
+                            returnData[i].Cells["TotalCost"].Value = Van(rentRow, returnRow);
+                        }
+                        else if (rentData[j].Cells["RegisterVehicleCategory"].Value.Equals("Minibuss"))
+                        {
+                            returnData[i].Cells["TotalCost"].Value = Minibuss(rentRow, returnRow);
+                        }
+
+
+                        returnData[i].Cells["TotalCost"].Value = 10000;
+                        break;
                     }
                 }
             }
-
         }
 
         //Converts date and time to a single DateTime variable
@@ -83,21 +84,32 @@ namespace Saab
                                 time.Hour, time.Minute, time.Second);
         }
 
-        private float SmallCar(int bookingNumber, DateTime datetime)
+        private float SmallCar(DataGridViewRow rentRow, DataGridViewRow returnRow)
+        {
+            int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
+            int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
+
+            DateTime dateRent =
+                DateConcat((DateTime)rentRow.Cells["Date"].Value,
+                           DateTime.ParseExact(rentRow.Cells["Time"].Value.ToString(),
+                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
+            DateTime dateReturn =
+                DateConcat((DateTime)returnRow.Cells["Date"].Value,
+                           DateTime.ParseExact(returnRow.Cells["Time"].Value.ToString(),
+                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
+
+            return 0;
+        }
+
+        //Also needs distance
+        private float Van(DataGridViewRow rentRow, DataGridViewRow returnRow)
         {
 
             return 0;
         }
 
         //Also needs distance
-        private float Van(int bookingNumber, DateTime datetime)
-        {
-
-            return 0;
-        }
-
-        //Also needs distance
-        private float Minibuss(int bookingNumber, DateTime datetime)
+        private float Minibuss(DataGridViewRow rentRow, DataGridViewRow returnRow)
         {
 
             return 0;

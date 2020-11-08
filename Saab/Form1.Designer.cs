@@ -80,12 +80,12 @@
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterBookingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterPersonalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterVehicleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentBookingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentPersonalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentVehicleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             booking_NumberLabel = new System.Windows.Forms.Label();
             personal_NumberLabel = new System.Windows.Forms.Label();
             vehicle_CategoryLabel = new System.Windows.Forms.Label();
@@ -351,12 +351,12 @@
             this.registerRentalDataGridView.AutoGenerateColumns = false;
             this.registerRentalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.registerRentalDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RegisterBookingNumber,
-            this.RegisterPersonalNumber,
-            this.RegisterVehicleCategory,
-            this.RegisterDate,
-            this.RegisterTime,
-            this.RegisterCurrentDistance});
+            this.RentBookingNumber,
+            this.RentPersonalNumber,
+            this.RentVehicleCategory,
+            this.RentDate,
+            this.RentTime,
+            this.RentCurrentDistance});
             this.registerRentalDataGridView.DataSource = this.registerRentalBindingSource;
             this.registerRentalDataGridView.Location = new System.Drawing.Point(350, 25);
             this.registerRentalDataGridView.Name = "registerRentalDataGridView";
@@ -516,41 +516,41 @@
             this.TotalCost.Name = "TotalCost";
             this.TotalCost.ReadOnly = true;
             // 
-            // RegisterBookingNumber
+            // RentBookingNumber
             // 
-            this.RegisterBookingNumber.DataPropertyName = "Booking Number";
-            this.RegisterBookingNumber.HeaderText = "Booking Number";
-            this.RegisterBookingNumber.Name = "RegisterBookingNumber";
+            this.RentBookingNumber.DataPropertyName = "Booking Number";
+            this.RentBookingNumber.HeaderText = "Booking Number";
+            this.RentBookingNumber.Name = "RentBookingNumber";
             // 
-            // RegisterPersonalNumber
+            // RentPersonalNumber
             // 
-            this.RegisterPersonalNumber.DataPropertyName = "Personal Number";
-            this.RegisterPersonalNumber.HeaderText = "Personal Security Number";
-            this.RegisterPersonalNumber.Name = "RegisterPersonalNumber";
+            this.RentPersonalNumber.DataPropertyName = "Personal Number";
+            this.RentPersonalNumber.HeaderText = "Personal Security Number";
+            this.RentPersonalNumber.Name = "RentPersonalNumber";
             // 
-            // RegisterVehicleCategory
+            // RentVehicleCategory
             // 
-            this.RegisterVehicleCategory.DataPropertyName = "Vehicle Category";
-            this.RegisterVehicleCategory.HeaderText = "Vehicle Category";
-            this.RegisterVehicleCategory.Name = "RegisterVehicleCategory";
+            this.RentVehicleCategory.DataPropertyName = "Vehicle Category";
+            this.RentVehicleCategory.HeaderText = "Vehicle Category";
+            this.RentVehicleCategory.Name = "RentVehicleCategory";
             // 
-            // RegisterDate
+            // RentDate
             // 
-            this.RegisterDate.DataPropertyName = "Date";
-            this.RegisterDate.HeaderText = "Date";
-            this.RegisterDate.Name = "RegisterDate";
+            this.RentDate.DataPropertyName = "Date";
+            this.RentDate.HeaderText = "Date";
+            this.RentDate.Name = "RentDate";
             // 
-            // RegisterTime
+            // RentTime
             // 
-            this.RegisterTime.DataPropertyName = "Time";
-            this.RegisterTime.HeaderText = "Time";
-            this.RegisterTime.Name = "RegisterTime";
+            this.RentTime.DataPropertyName = "Time";
+            this.RentTime.HeaderText = "Time";
+            this.RentTime.Name = "RentTime";
             // 
-            // RegisterCurrentDistance
+            // RentCurrentDistance
             // 
-            this.RegisterCurrentDistance.DataPropertyName = "Current Distance";
-            this.RegisterCurrentDistance.HeaderText = "Current Distance";
-            this.RegisterCurrentDistance.Name = "RegisterCurrentDistance";
+            this.RentCurrentDistance.DataPropertyName = "Current Distance";
+            this.RentCurrentDistance.HeaderText = "Current Distance";
+            this.RentCurrentDistance.Name = "RentCurrentDistance";
             // 
             // Form1
             // 
@@ -640,12 +640,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn CurrentDistance;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterBookingNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterPersonalNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterVehicleCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterCurrentDistance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentBookingNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentPersonalNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentVehicleCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentCurrentDistance;
     }
 }
 
