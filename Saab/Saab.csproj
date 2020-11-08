@@ -79,6 +79,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VehicleDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VehicleDatabaseDataSetCost.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehicleDatabaseDataSetCost.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +126,17 @@
     </None>
     <None Include="VehicleDatabaseDataSet1.xss">
       <DependentUpon>VehicleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VehicleDatabaseDataSetCost.xsc">
+      <DependentUpon>VehicleDatabaseDataSetCost.xsd</DependentUpon>
+    </None>
+    <None Include="VehicleDatabaseDataSetCost.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehicleDatabaseDataSetCost.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VehicleDatabaseDataSetCost.xss">
+      <DependentUpon>VehicleDatabaseDataSetCost.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
