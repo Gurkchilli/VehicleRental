@@ -2,7 +2,7 @@
 
 Made using Visual Studio 2017. Also started from Visual Studio 2017.
 
-![alt text](https://github.com/Gurkchilli/VehicleRental/blob/main/image.jpg?raw=true)
+![alt text](https://github.com/Gurkchilli/VehicleRental/blob/main/BookingForm.png?raw=true)
 
 The main code written is in "VehicleRentalForm.cs".
 
