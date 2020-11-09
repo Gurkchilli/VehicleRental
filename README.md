@@ -22,8 +22,8 @@ The third customer rented a "Minibuss" in order to go on a day-trip to Germany. 
 
 #### User stories
 
-As a business owner I want to keep track of all previous bookings of my vehicles so that I can gather data and learn more about how the business goes. I alse want to track how far, adn for how long the renter drives so that I can accurately charge for the renting period
+As a business owner I want to keep track of all previous bookings of my vehicles so that I can gather data and learn more about how the business goes. I also want to track how far, and for how long the renter drives, so that I can accurately charge for the renting period
 
-As a renter I want to book a vehicle on specific dates and times so that I know exactly when my renting period starts. I want to be able to book different types of cars so that I can choose what is most suitable for my situation. I also want to know how much to pay after I have turned in my vehicle.
+As a renter I want to book a vehicle on specific dates and times so that I know exactly when my renting period starts. I want to be able to book different types of cars so that I can choose what is most suitable for my situation. I also want to know how much to pay after I have returned my vehicle.
 
 
