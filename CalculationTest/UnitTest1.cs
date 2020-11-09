@@ -10,7 +10,7 @@ namespace CalculationTest
         [TestMethod]
         public void Test_Calculation_Van()
         {
-            Form1 sb = new Form1();
+            VehicleRentalForm sb = new VehicleRentalForm();
             DateTime dtRent = new DateTime(2020, 11, 05, 12, 00, 00);
             DateTime dtReturn = new DateTime(2020, 11, 06, 11, 00, 00);
             int rentDistance = 1000;
@@ -23,7 +23,7 @@ namespace CalculationTest
         [TestMethod]
         public void Test_Calculation_Minibuss()
         {
-            Form1 sb = new Form1();
+            VehicleRentalForm sb = new VehicleRentalForm();
             DateTime dtRent = new DateTime(2020, 11, 05, 12, 00, 00);
             DateTime dtReturn = new DateTime(2020, 11, 06, 11, 00, 00);
             int rentDistance = 1000;
