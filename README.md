@@ -14,12 +14,16 @@ Unit tests are written in "UnitTest1.cs" and are currently meant to test the cal
 
 ---
 
-##### User stories
-
 The first customer rented a "Småbil" in order to drive his mother to the airport. This took a total of 2 hours, and a total distance of 500 km. The final price ended up as `dailyPrice * numberOfDays`, which is 150.
 
 The second customer rented a "Van" in order to drive on Autobahn, to really push the limits of the vehicle. This took a total of 28 hours, and a total distance of 1500 km. The final price ended up as `dailyPrice * numberOfDays * 1.2 + kmPrice * nrOfKm`, which is 15360 (!).
 
 The third customer rented a "Minibuss" in order to go on a day-trip to Germany. This took a total of 23 hours, and a total distance of 500 km. The final price ended up as `dailyPrice * numberOfDays * 1.7 + (kmPrice * nrOfKm * 1.5)`, which is 7755.
+
+#### User stories
+
+As a business owner I want to keep track of all previous bookings of my vehicles so that I can gather data and learn more about how the business goes. I alse want to track how far, adn for how long the renter drives so that I can accurately charge for the renting period
+
+As a renter I want to book a vehicle on specific dates and times so that I know exactly when my renting period starts. I want to be able to book different types of cars so that I can choose what is most suitable for my situation. I also want to know how much to pay after I have turned in my vehicle.
 
 
