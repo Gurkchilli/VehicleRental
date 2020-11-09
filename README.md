@@ -1,6 +1,6 @@
 # VehicleRental
 
-Made using Visual Studio 2017, with the .NET Framework 4.7.1. Also started from Visual Studio 2017.
+Made by Erik Hildinge. Made using Visual Studio 2017, with the .NET Framework 4.7.1. Also started from Visual Studio 2017.
 
 When the program is started, a form similar to the one below is shown. The first grid is used to track when a customer books a car, and the second grid is used to track when the customer returns the car. It is possible to press the calculate button, which calculates the total cost for that row.
 
