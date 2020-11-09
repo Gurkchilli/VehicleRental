@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Saab
@@ -13,10 +7,9 @@ namespace Saab
     public partial class Form1 : Form
     {
 
+        //The dailyPrice and kmPrice are currently global variables.
         private float dailyPrice = 150;
         private float kmPrice = 10;
-
-        
 
         public Form1()
         {
@@ -31,13 +24,12 @@ namespace Saab
 
         }
 
+
+        //Fills the form with the test data.
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'vehicleDatabaseDataSetCost.RegisterReturn' table. You can move, or remove it, as needed.
             this.registerReturnTableAdapter1.Fill(this.vehicleDatabaseDataSetCost.RegisterReturn);
-            // TODO: This line of code loads data into the 'vehicleDatabaseDataSet1.RegisterReturn' table. You can move, or remove it, as needed.
             this.registerReturnTableAdapter.Fill(this.vehicleDatabaseDataSet1.RegisterReturn);
-            // TODO: This line of code loads data into the 'vehicleDatabaseDataSet1.RegisterRental' table. You can move, or remove it, as needed.
             this.registerRentalTableAdapter.Fill(this.vehicleDatabaseDataSet1.RegisterRental);
 
 
@@ -54,7 +46,7 @@ namespace Saab
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                //Saves the unique ID
+                //Saves the unique ID, which will be matched with the other grid
                 int bookingNumberReturn = (int)registerReturnDataGridView.Rows[e.RowIndex].Cells["BookingNumber"].Value;
 
                 //Goes through all the entries in the Rental grid.
@@ -66,6 +58,7 @@ namespace Saab
                         DataGridViewRow rentRow = registerRentalDataGridView.Rows[i];
                         DataGridViewRow returnRow = registerReturnDataGridView.Rows[e.RowIndex];
 
+                        //Calculates the cost, and writes the result in the "TotalCost" column 
                         registerReturnDataGridView.Rows[e.RowIndex].Cells["TotalCost"].Value = CalculateCost(rentRow, returnRow);
                     }
                 }
@@ -85,6 +78,8 @@ namespace Saab
 
         public double CalculateCost(DataGridViewRow rentRow, DataGridViewRow returnRow)
         {
+            //All vehicle costs are date dependant.
+            //Here we get the date and time from the corresponding "rentRow" and "returnRow"
             DateTime dateRent =
                 DateConcat((DateTime)rentRow.Cells["RentDate"].Value,
                            DateTime.ParseExact(rentRow.Cells["RentTime"].Value.ToString(),
@@ -98,7 +93,7 @@ namespace Saab
             int numberOfDays = (dateReturn - dateRent).Days + 1;
 
 
-            //Since the different types of vehicles get
+            //The different Vehicle types require different calculations
             if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Småbil")
             {
                 return Math.Round(dailyPrice * numberOfDays);
@@ -109,9 +104,7 @@ namespace Saab
                 int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
                 int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
 
-                int numberOfKm = returnDistance - rentDistance;
-
-                return Math.Round(dailyPrice * numberOfDays * 1.2f + kmPrice * numberOfKm);
+                return VanCost(dateRent, dateReturn, rentDistance, returnDistance);
             }
 
             else if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Minibuss")
@@ -119,20 +112,18 @@ namespace Saab
                 int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
                 int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
 
-                int numberOfKm = returnDistance - rentDistance;
-
-                return Math.Round(dailyPrice * numberOfDays * 1.7f + kmPrice * numberOfKm * 1.5f);
+                return MinibussCost(dateRent, dateReturn, rentDistance, returnDistance);
             }
 
+            //If none of the vehicle types above are entered, return a 0.
             else
             {
                 return 0;
             }
         }
 
-
-        //Only used for unit tests, as I could not fetch or create DataGridViewRows in the test file
-        public double VanCostTest(DateTime dateRent, DateTime dateReturn, int rentDistance, int returnDistance)
+        //Calculates the cost of a Van
+        public double VanCost(DateTime dateRent, DateTime dateReturn, int rentDistance, int returnDistance)
         {
             int numberOfDays = (dateReturn - dateRent).Days + 1;
             int numberOfKm = returnDistance - rentDistance;
@@ -140,7 +131,8 @@ namespace Saab
             return Math.Round(dailyPrice * numberOfDays * 1.2f + kmPrice * numberOfKm);
         }
 
-        public double MinibussCostTest(DateTime dateRent, DateTime dateReturn, int rentDistance, int returnDistance)
+        //Calculates the cost of a Minibuss
+        public double MinibussCost(DateTime dateRent, DateTime dateReturn, int rentDistance, int returnDistance)
         {
             int numberOfDays = (dateReturn - dateRent).Days + 1;
             int numberOfKm = returnDistance - rentDistance;

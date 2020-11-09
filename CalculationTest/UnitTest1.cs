@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Saab;
 
@@ -23,7 +22,7 @@ namespace CalculationTest
             int rentDistance = 1000;
             int returnDistance = 1500;
 
-            double res = sb.VanCostTest(dtRent, dtReturn, rentDistance, returnDistance);
+            double res = sb.VanCost(dtRent, dtReturn, rentDistance, returnDistance);
             Assert.AreEqual(res, 5180);
         }
 
@@ -36,7 +35,7 @@ namespace CalculationTest
             int rentDistance = 1000;
             int returnDistance = 1500;
 
-            double res = sb.MinibussCostTest(dtRent, dtReturn, rentDistance, returnDistance);
+            double res = sb.MinibussCost(dtRent, dtReturn, rentDistance, returnDistance);
             Assert.AreEqual(res, 7755);
         }
     }
