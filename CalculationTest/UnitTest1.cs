@@ -8,12 +8,6 @@ namespace CalculationTest
     public class UnitTest1
     {
         [TestMethod]
-        public void Test_Calculation_Smabil()
-        {
-            
-        }
-
-        [TestMethod]
         public void Test_Calculation_Van()
         {
             Form1 sb = new Form1();

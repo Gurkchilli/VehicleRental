@@ -243,7 +243,6 @@
             this.registerRentalDataGridView.Name = "registerRentalDataGridView";
             this.registerRentalDataGridView.Size = new System.Drawing.Size(643, 220);
             this.registerRentalDataGridView.TabIndex = 1;
-            //this.registerRentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerRentalDataGridView_CellContentClick);
             // 
             // RentBookingNumber
             // 

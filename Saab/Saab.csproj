@@ -144,10 +144,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="VehicleDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="VehicleDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>VehicleDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>

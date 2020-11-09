@@ -16,11 +16,15 @@ namespace Saab
             InitializeComponent();
         }
 
+        //Saves added data in both the Register grid, and the Return grid
         private void registerRentalBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.registerRentalBindingSource.EndEdit();
+            this.registerReturnBindingSource1.EndEdit();
+
             this.tableAdapterManager.UpdateAll(this.vehicleDatabaseDataSet1);
+            this.tableAdapterManager1.UpdateAll(this.vehicleDatabaseDataSetCost);
 
         }
 
@@ -89,17 +93,19 @@ namespace Saab
                            DateTime.ParseExact(returnRow.Cells["Time"].Value.ToString(),
                            "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
 
-            //If you turn the vehicle back in the same day, it counts as 1 day
-            int numberOfDays = (dateReturn - dateRent).Days + 1;
 
+            string vehicleType = rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim();
 
             //The different Vehicle types require different calculations
-            if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Småbil")
+            if (vehicleType == "Småbil")
             {
+                //If you turn the vehicle back in the same day, it counts as 1 day
+                int numberOfDays = (dateReturn - dateRent).Days + 1;
+
                 return Math.Round(dailyPrice * numberOfDays);
             }
 
-            else if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Van")
+            else if (vehicleType == "Van")
             {
                 int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
                 int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
@@ -107,7 +113,7 @@ namespace Saab
                 return VanCost(dateRent, dateReturn, rentDistance, returnDistance);
             }
 
-            else if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Minibuss")
+            else if (vehicleType == "Minibuss")
             {
                 int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
                 int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
@@ -139,8 +145,5 @@ namespace Saab
 
             return Math.Round(dailyPrice * numberOfDays * 1.7f + kmPrice * numberOfKm * 1.5f);
         }
-
-
-
     }
 }
