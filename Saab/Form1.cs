@@ -41,42 +41,36 @@ namespace Saab
 
             //The TotalCost column is ReadOnly, which is indicated by making the background color gray.
             this.registerReturnDataGridView.Columns["TotalCost"].DefaultCellStyle.BackColor = Color.LightGray;
+        }
 
-            //We iterate through both rentData and registerdata to match the booking numbers.
-            var rentData = registerRentalDataGridView.Rows;
-            var returnData = registerReturnDataGridView.Rows;
 
-            for (int i = 0; i < returnData.Count - 1; i++)
+
+        //Triggers when clicking the "Calculate" button.
+        private void registerReturnDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            //Makes sure a button was actually clicked
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                for (int j = 0; j < rentData.Count - 1; j++)
+                //Saves the unique ID
+                int bookingNumberReturn = (int)registerReturnDataGridView.Rows[e.RowIndex].Cells["BookingNumber"].Value;
+
+                //Goes through all the entries in the Rental grid.
+                for (int i = 0; i < registerRentalDataGridView.Rows.Count - 1; i++)
                 {
-                    if ((int)rentData[j].Cells["RentBookingNumber"].Value == (int)returnData[i].Cells["BookingNumber"].Value)
+                    //Stops when the correct row index has been found
+                    if ((int)registerRentalDataGridView.Rows[i].Cells["RentBookingNumber"].Value == bookingNumberReturn)
                     {
-                        DataGridViewRow rentRow = rentData[j];
-                        DataGridViewRow returnRow = returnData[i];
+                        DataGridViewRow rentRow = registerRentalDataGridView.Rows[i];
+                        DataGridViewRow returnRow = registerReturnDataGridView.Rows[e.RowIndex];
 
-                        if (rentData[j].Cells["RentVehicleCategory"].Value.ToString().Trim() == "Småbil")
-                        {
-                            returnData[i].Cells["TotalCost"].Value = SmallCar(rentRow, returnRow);
-                        }
-                        else if (rentData[j].Cells["RentVehicleCategory"].Value.ToString().Trim() == "Van")
-                        {
-                            returnData[i].Cells["TotalCost"].Value = Van(rentRow, returnRow);
-                        }
-                        else if (rentData[j].Cells["RentVehicleCategory"].Value.ToString().Trim() == "Minibuss")
-                        {
-                            returnData[i].Cells["TotalCost"].Value = Minibuss(rentRow, returnRow);
-                        }
-                        else
-                        {
-                            returnData[i].Cells["TotalCost"].Value = 0;
-                        }
-
-                        break;
+                        registerReturnDataGridView.Rows[e.RowIndex].Cells["TotalCost"].Value = CalculateCost(rentRow, returnRow);
                     }
                 }
             }
         }
+
+
 
         //Converts date and time to a single DateTime variable
         private DateTime DateConcat(DateTime date, DateTime time)
@@ -85,7 +79,9 @@ namespace Saab
                                 time.Hour, time.Minute, time.Second);
         }
 
-        private double SmallCar(DataGridViewRow rentRow, DataGridViewRow returnRow)
+
+
+        private double CalculateCost(DataGridViewRow rentRow, DataGridViewRow returnRow)
         {
             DateTime dateRent =
                 DateConcat((DateTime)rentRow.Cells["RentDate"].Value,
@@ -99,54 +95,47 @@ namespace Saab
             //If you turn the car back in the same day, it counts as 1 day
             int nuberOfDays = (dateReturn - dateRent).Days + 1;
 
-            return Math.Round(dailyPrice * nuberOfDays);
+
+            //Since the different types of vehicles get
+            if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Småbil")
+            {
+                return Math.Round(dailyPrice * nuberOfDays);
+            }
+
+            else if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Van")
+            {
+                int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
+                int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
+
+                int numberOfKm = returnDistance - rentDistance;
+
+                return Math.Round(dailyPrice * nuberOfDays * 1.2f + kmPrice * numberOfKm);
+            }
+
+            else if (rentRow.Cells["RentVehicleCategory"].Value.ToString().Trim() == "Minibuss")
+            {
+                int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
+                int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
+
+                int numberOfKm = returnDistance - rentDistance;
+
+                return Math.Round(dailyPrice * nuberOfDays * 1.7f + kmPrice * numberOfKm * 1.5f);
+            }
+
+            else
+            {
+                return 0;
+            }
         }
 
-        //Also needs distance
-        private double Van(DataGridViewRow rentRow, DataGridViewRow returnRow)
-        {
-            int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
-            int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
 
-            DateTime dateRent =
-                DateConcat((DateTime)rentRow.Cells["RentDate"].Value,
-                           DateTime.ParseExact(rentRow.Cells["RentTime"].Value.ToString(),
-                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
-            DateTime dateReturn =
-                DateConcat((DateTime)returnRow.Cells["Date"].Value,
-                           DateTime.ParseExact(returnRow.Cells["Time"].Value.ToString(),
-                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
 
-            int nuberOfDays = (dateReturn - dateRent).Days + 1;
-            int numberOfKm = returnDistance - rentDistance;
 
-            return Math.Round(dailyPrice * nuberOfDays * 1.2f + kmPrice * numberOfKm);
-        }
-
-        //Also needs distance
-        private double Minibuss(DataGridViewRow rentRow, DataGridViewRow returnRow)
-        {
-            int rentDistance = (int)rentRow.Cells["RentCurrentDistance"].Value;
-            int returnDistance = (int)returnRow.Cells["CurrentDistance"].Value;
-
-            DateTime dateRent =
-                DateConcat((DateTime)rentRow.Cells["RentDate"].Value,
-                           DateTime.ParseExact(rentRow.Cells["RentTime"].Value.ToString(),
-                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
-            DateTime dateReturn =
-                DateConcat((DateTime)returnRow.Cells["Date"].Value,
-                           DateTime.ParseExact(returnRow.Cells["Time"].Value.ToString(),
-                           "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
-
-            int nuberOfDays = (dateReturn - dateRent).Days + 1;
-            int numberOfKm = returnDistance - rentDistance;
-
-            return Math.Round(dailyPrice * nuberOfDays * 1.7f + kmPrice * numberOfKm * 1.5f);
-        }
+        
 
         private void registerRentalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void registerReturnDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

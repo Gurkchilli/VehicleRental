@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label booking_NumberLabel;
-            System.Windows.Forms.Label personal_NumberLabel;
-            System.Windows.Forms.Label vehicle_CategoryLabel;
-            System.Windows.Forms.Label dateLabel;
-            System.Windows.Forms.Label timeLabel;
-            System.Windows.Forms.Label current_DistanceLabel;
-            System.Windows.Forms.Label booking_NumberLabel1;
-            System.Windows.Forms.Label dateLabel1;
-            System.Windows.Forms.Label timeLabel1;
-            System.Windows.Forms.Label current_DistanceLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.vehicleDatabaseDataSet1 = new Saab.VehicleDatabaseDataSet1();
             this.registerRentalBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,17 +49,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.registerRentalBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.registerRentalDataGridView = new System.Windows.Forms.DataGridView();
+            this.RentBookingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentPersonalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentVehicleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registerReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.booking_NumberTextBox = new System.Windows.Forms.TextBox();
-            this.personal_NumberTextBox = new System.Windows.Forms.TextBox();
-            this.vehicle_CategoryTextBox = new System.Windows.Forms.TextBox();
-            this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.timeTextBox = new System.Windows.Forms.TextBox();
-            this.current_DistanceTextBox = new System.Windows.Forms.TextBox();
-            this.booking_NumberTextBox1 = new System.Windows.Forms.TextBox();
-            this.dateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.timeTextBox1 = new System.Windows.Forms.TextBox();
-            this.current_DistanceTextBox1 = new System.Windows.Forms.TextBox();
             this.vehicleDatabaseDataSetCost = new Saab.VehicleDatabaseDataSetCost();
             this.registerReturnBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.registerReturnTableAdapter1 = new Saab.VehicleDatabaseDataSetCostTableAdapters.RegisterReturnTableAdapter();
@@ -79,23 +65,8 @@
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calculate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentBookingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentPersonalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentVehicleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            booking_NumberLabel = new System.Windows.Forms.Label();
-            personal_NumberLabel = new System.Windows.Forms.Label();
-            vehicle_CategoryLabel = new System.Windows.Forms.Label();
-            dateLabel = new System.Windows.Forms.Label();
-            timeLabel = new System.Windows.Forms.Label();
-            current_DistanceLabel = new System.Windows.Forms.Label();
-            booking_NumberLabel1 = new System.Windows.Forms.Label();
-            dateLabel1 = new System.Windows.Forms.Label();
-            timeLabel1 = new System.Windows.Forms.Label();
-            current_DistanceLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDatabaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRentalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRentalBindingNavigator)).BeginInit();
@@ -106,96 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.registerReturnBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerReturnDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // booking_NumberLabel
-            // 
-            booking_NumberLabel.AutoSize = true;
-            booking_NumberLabel.Location = new System.Drawing.Point(12, 28);
-            booking_NumberLabel.Name = "booking_NumberLabel";
-            booking_NumberLabel.Size = new System.Drawing.Size(89, 13);
-            booking_NumberLabel.TabIndex = 2;
-            booking_NumberLabel.Text = "Booking Number:";
-            // 
-            // personal_NumberLabel
-            // 
-            personal_NumberLabel.AutoSize = true;
-            personal_NumberLabel.Location = new System.Drawing.Point(12, 54);
-            personal_NumberLabel.Name = "personal_NumberLabel";
-            personal_NumberLabel.Size = new System.Drawing.Size(91, 13);
-            personal_NumberLabel.TabIndex = 4;
-            personal_NumberLabel.Text = "Personal Number:";
-            // 
-            // vehicle_CategoryLabel
-            // 
-            vehicle_CategoryLabel.AutoSize = true;
-            vehicle_CategoryLabel.Location = new System.Drawing.Point(12, 80);
-            vehicle_CategoryLabel.Name = "vehicle_CategoryLabel";
-            vehicle_CategoryLabel.Size = new System.Drawing.Size(90, 13);
-            vehicle_CategoryLabel.TabIndex = 6;
-            vehicle_CategoryLabel.Text = "Vehicle Category:";
-            // 
-            // dateLabel
-            // 
-            dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(12, 107);
-            dateLabel.Name = "dateLabel";
-            dateLabel.Size = new System.Drawing.Size(33, 13);
-            dateLabel.TabIndex = 8;
-            dateLabel.Text = "Date:";
-            // 
-            // timeLabel
-            // 
-            timeLabel.AutoSize = true;
-            timeLabel.Location = new System.Drawing.Point(12, 132);
-            timeLabel.Name = "timeLabel";
-            timeLabel.Size = new System.Drawing.Size(33, 13);
-            timeLabel.TabIndex = 10;
-            timeLabel.Text = "Time:";
-            // 
-            // current_DistanceLabel
-            // 
-            current_DistanceLabel.AutoSize = true;
-            current_DistanceLabel.Location = new System.Drawing.Point(12, 158);
-            current_DistanceLabel.Name = "current_DistanceLabel";
-            current_DistanceLabel.Size = new System.Drawing.Size(89, 13);
-            current_DistanceLabel.TabIndex = 12;
-            current_DistanceLabel.Text = "Current Distance:";
-            // 
-            // booking_NumberLabel1
-            // 
-            booking_NumberLabel1.AutoSize = true;
-            booking_NumberLabel1.Location = new System.Drawing.Point(14, 306);
-            booking_NumberLabel1.Name = "booking_NumberLabel1";
-            booking_NumberLabel1.Size = new System.Drawing.Size(89, 13);
-            booking_NumberLabel1.TabIndex = 15;
-            booking_NumberLabel1.Text = "Booking Number:";
-            // 
-            // dateLabel1
-            // 
-            dateLabel1.AutoSize = true;
-            dateLabel1.Location = new System.Drawing.Point(14, 333);
-            dateLabel1.Name = "dateLabel1";
-            dateLabel1.Size = new System.Drawing.Size(33, 13);
-            dateLabel1.TabIndex = 17;
-            dateLabel1.Text = "Date:";
-            // 
-            // timeLabel1
-            // 
-            timeLabel1.AutoSize = true;
-            timeLabel1.Location = new System.Drawing.Point(14, 358);
-            timeLabel1.Name = "timeLabel1";
-            timeLabel1.Size = new System.Drawing.Size(33, 13);
-            timeLabel1.TabIndex = 19;
-            timeLabel1.Text = "Time:";
-            // 
-            // current_DistanceLabel1
-            // 
-            current_DistanceLabel1.AutoSize = true;
-            current_DistanceLabel1.Location = new System.Drawing.Point(14, 384);
-            current_DistanceLabel1.Name = "current_DistanceLabel1";
-            current_DistanceLabel1.Size = new System.Drawing.Size(89, 13);
-            current_DistanceLabel1.TabIndex = 21;
-            current_DistanceLabel1.Text = "Current Distance:";
             // 
             // vehicleDatabaseDataSet1
             // 
@@ -248,7 +129,7 @@
             this.registerRentalBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.registerRentalBindingNavigator.Name = "registerRentalBindingNavigator";
             this.registerRentalBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.registerRentalBindingNavigator.Size = new System.Drawing.Size(1030, 25);
+            this.registerRentalBindingNavigator.Size = new System.Drawing.Size(670, 25);
             this.registerRentalBindingNavigator.TabIndex = 0;
             this.registerRentalBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -358,163 +239,11 @@
             this.RentTime,
             this.RentCurrentDistance});
             this.registerRentalDataGridView.DataSource = this.registerRentalBindingSource;
-            this.registerRentalDataGridView.Location = new System.Drawing.Point(350, 25);
+            this.registerRentalDataGridView.Location = new System.Drawing.Point(12, 28);
             this.registerRentalDataGridView.Name = "registerRentalDataGridView";
             this.registerRentalDataGridView.Size = new System.Drawing.Size(643, 220);
             this.registerRentalDataGridView.TabIndex = 1;
             this.registerRentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerRentalDataGridView_CellContentClick);
-            // 
-            // registerReturnBindingSource
-            // 
-            this.registerReturnBindingSource.DataMember = "RegisterReturn";
-            this.registerReturnBindingSource.DataSource = this.vehicleDatabaseDataSet1;
-            // 
-            // booking_NumberTextBox
-            // 
-            this.booking_NumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerRentalBindingSource, "Booking Number", true));
-            this.booking_NumberTextBox.Location = new System.Drawing.Point(109, 25);
-            this.booking_NumberTextBox.Name = "booking_NumberTextBox";
-            this.booking_NumberTextBox.Size = new System.Drawing.Size(200, 20);
-            this.booking_NumberTextBox.TabIndex = 3;
-            // 
-            // personal_NumberTextBox
-            // 
-            this.personal_NumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerRentalBindingSource, "Personal Number", true));
-            this.personal_NumberTextBox.Location = new System.Drawing.Point(109, 51);
-            this.personal_NumberTextBox.Name = "personal_NumberTextBox";
-            this.personal_NumberTextBox.Size = new System.Drawing.Size(200, 20);
-            this.personal_NumberTextBox.TabIndex = 5;
-            // 
-            // vehicle_CategoryTextBox
-            // 
-            this.vehicle_CategoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerRentalBindingSource, "Vehicle Category", true));
-            this.vehicle_CategoryTextBox.Location = new System.Drawing.Point(109, 77);
-            this.vehicle_CategoryTextBox.Name = "vehicle_CategoryTextBox";
-            this.vehicle_CategoryTextBox.Size = new System.Drawing.Size(200, 20);
-            this.vehicle_CategoryTextBox.TabIndex = 7;
-            // 
-            // dateDateTimePicker
-            // 
-            this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.registerRentalBindingSource, "Date", true));
-            this.dateDateTimePicker.Location = new System.Drawing.Point(109, 103);
-            this.dateDateTimePicker.Name = "dateDateTimePicker";
-            this.dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dateDateTimePicker.TabIndex = 9;
-            // 
-            // timeTextBox
-            // 
-            this.timeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerRentalBindingSource, "Time", true));
-            this.timeTextBox.Location = new System.Drawing.Point(109, 129);
-            this.timeTextBox.Name = "timeTextBox";
-            this.timeTextBox.Size = new System.Drawing.Size(200, 20);
-            this.timeTextBox.TabIndex = 11;
-            // 
-            // current_DistanceTextBox
-            // 
-            this.current_DistanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerRentalBindingSource, "Current Distance", true));
-            this.current_DistanceTextBox.Location = new System.Drawing.Point(109, 155);
-            this.current_DistanceTextBox.Name = "current_DistanceTextBox";
-            this.current_DistanceTextBox.Size = new System.Drawing.Size(200, 20);
-            this.current_DistanceTextBox.TabIndex = 13;
-            // 
-            // booking_NumberTextBox1
-            // 
-            this.booking_NumberTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerReturnBindingSource, "Booking Number", true));
-            this.booking_NumberTextBox1.Location = new System.Drawing.Point(109, 303);
-            this.booking_NumberTextBox1.Name = "booking_NumberTextBox1";
-            this.booking_NumberTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.booking_NumberTextBox1.TabIndex = 16;
-            // 
-            // dateDateTimePicker1
-            // 
-            this.dateDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.registerReturnBindingSource, "Date", true));
-            this.dateDateTimePicker1.Location = new System.Drawing.Point(109, 329);
-            this.dateDateTimePicker1.Name = "dateDateTimePicker1";
-            this.dateDateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateDateTimePicker1.TabIndex = 18;
-            // 
-            // timeTextBox1
-            // 
-            this.timeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerReturnBindingSource, "Time", true));
-            this.timeTextBox1.Location = new System.Drawing.Point(109, 355);
-            this.timeTextBox1.Name = "timeTextBox1";
-            this.timeTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.timeTextBox1.TabIndex = 20;
-            // 
-            // current_DistanceTextBox1
-            // 
-            this.current_DistanceTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registerReturnBindingSource, "Current Distance", true));
-            this.current_DistanceTextBox1.Location = new System.Drawing.Point(109, 381);
-            this.current_DistanceTextBox1.Name = "current_DistanceTextBox1";
-            this.current_DistanceTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.current_DistanceTextBox1.TabIndex = 22;
-            // 
-            // vehicleDatabaseDataSetCost
-            // 
-            this.vehicleDatabaseDataSetCost.DataSetName = "VehicleDatabaseDataSetCost";
-            this.vehicleDatabaseDataSetCost.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registerReturnBindingSource1
-            // 
-            this.registerReturnBindingSource1.DataMember = "RegisterReturn";
-            this.registerReturnBindingSource1.DataSource = this.vehicleDatabaseDataSetCost;
-            // 
-            // registerReturnTableAdapter1
-            // 
-            this.registerReturnTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.RegisterReturnTableAdapter = this.registerReturnTableAdapter1;
-            this.tableAdapterManager1.UpdateOrder = Saab.VehicleDatabaseDataSetCostTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // registerReturnDataGridView
-            // 
-            this.registerReturnDataGridView.AutoGenerateColumns = false;
-            this.registerReturnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.registerReturnDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BookingNumber,
-            this.Date,
-            this.Time,
-            this.CurrentDistance,
-            this.TotalCost});
-            this.registerReturnDataGridView.DataSource = this.registerReturnBindingSource1;
-            this.registerReturnDataGridView.Location = new System.Drawing.Point(350, 303);
-            this.registerReturnDataGridView.Name = "registerReturnDataGridView";
-            this.registerReturnDataGridView.Size = new System.Drawing.Size(643, 220);
-            this.registerReturnDataGridView.TabIndex = 22;
-            // 
-            // BookingNumber
-            // 
-            this.BookingNumber.DataPropertyName = "Booking Number";
-            this.BookingNumber.HeaderText = "Booking Number";
-            this.BookingNumber.Name = "BookingNumber";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // Time
-            // 
-            this.Time.DataPropertyName = "Time";
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
-            // 
-            // CurrentDistance
-            // 
-            this.CurrentDistance.DataPropertyName = "Current Distance";
-            this.CurrentDistance.HeaderText = "Current Distance";
-            this.CurrentDistance.Name = "CurrentDistance";
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.DataPropertyName = "Total Cost";
-            this.TotalCost.HeaderText = "Total Cost";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
             // 
             // RentBookingNumber
             // 
@@ -552,32 +281,94 @@
             this.RentCurrentDistance.HeaderText = "Current Distance";
             this.RentCurrentDistance.Name = "RentCurrentDistance";
             // 
+            // registerReturnBindingSource
+            // 
+            this.registerReturnBindingSource.DataMember = "RegisterReturn";
+            this.registerReturnBindingSource.DataSource = this.vehicleDatabaseDataSet1;
+            // 
+            // vehicleDatabaseDataSetCost
+            // 
+            this.vehicleDatabaseDataSetCost.DataSetName = "VehicleDatabaseDataSetCost";
+            this.vehicleDatabaseDataSetCost.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registerReturnBindingSource1
+            // 
+            this.registerReturnBindingSource1.DataMember = "RegisterReturn";
+            this.registerReturnBindingSource1.DataSource = this.vehicleDatabaseDataSetCost;
+            // 
+            // registerReturnTableAdapter1
+            // 
+            this.registerReturnTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.RegisterReturnTableAdapter = this.registerReturnTableAdapter1;
+            this.tableAdapterManager1.UpdateOrder = Saab.VehicleDatabaseDataSetCostTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // registerReturnDataGridView
+            // 
+            this.registerReturnDataGridView.AutoGenerateColumns = false;
+            this.registerReturnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.registerReturnDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BookingNumber,
+            this.Date,
+            this.Time,
+            this.CurrentDistance,
+            this.Calculate,
+            this.TotalCost});
+            this.registerReturnDataGridView.DataSource = this.registerReturnBindingSource1;
+            this.registerReturnDataGridView.Location = new System.Drawing.Point(12, 281);
+            this.registerReturnDataGridView.Name = "registerReturnDataGridView";
+            this.registerReturnDataGridView.Size = new System.Drawing.Size(643, 220);
+            this.registerReturnDataGridView.TabIndex = 22;
+            this.registerReturnDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerReturnDataGridView_CellContentClick_1);
+            // 
+            // BookingNumber
+            // 
+            this.BookingNumber.DataPropertyName = "Booking Number";
+            this.BookingNumber.HeaderText = "Booking Number";
+            this.BookingNumber.Name = "BookingNumber";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // Time
+            // 
+            this.Time.DataPropertyName = "Time";
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            // 
+            // CurrentDistance
+            // 
+            this.CurrentDistance.DataPropertyName = "Current Distance";
+            this.CurrentDistance.HeaderText = "Current Distance";
+            this.CurrentDistance.Name = "CurrentDistance";
+            // 
+            // Calculate
+            // 
+            this.Calculate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Calculate.HeaderText = "Calculate Total Cost";
+            this.Calculate.Name = "Calculate";
+            this.Calculate.Text = "Calculate";
+            this.Calculate.UseColumnTextForButtonValue = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "Total Cost";
+            this.TotalCost.HeaderText = "Total Cost";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 642);
+            this.ClientSize = new System.Drawing.Size(670, 518);
             this.Controls.Add(this.registerReturnDataGridView);
-            this.Controls.Add(booking_NumberLabel1);
-            this.Controls.Add(this.booking_NumberTextBox1);
-            this.Controls.Add(dateLabel1);
-            this.Controls.Add(this.dateDateTimePicker1);
-            this.Controls.Add(timeLabel1);
-            this.Controls.Add(this.timeTextBox1);
-            this.Controls.Add(current_DistanceLabel1);
-            this.Controls.Add(this.current_DistanceTextBox1);
-            this.Controls.Add(booking_NumberLabel);
-            this.Controls.Add(this.booking_NumberTextBox);
-            this.Controls.Add(personal_NumberLabel);
-            this.Controls.Add(this.personal_NumberTextBox);
-            this.Controls.Add(vehicle_CategoryLabel);
-            this.Controls.Add(this.vehicle_CategoryTextBox);
-            this.Controls.Add(dateLabel);
-            this.Controls.Add(this.dateDateTimePicker);
-            this.Controls.Add(timeLabel);
-            this.Controls.Add(this.timeTextBox);
-            this.Controls.Add(current_DistanceLabel);
-            this.Controls.Add(this.current_DistanceTextBox);
             this.Controls.Add(this.registerRentalDataGridView);
             this.Controls.Add(this.registerRentalBindingNavigator);
             this.Name = "Form1";
@@ -620,32 +411,23 @@
         private System.Windows.Forms.DataGridView registerRentalDataGridView;
         private VehicleDatabaseDataSet1TableAdapters.RegisterReturnTableAdapter registerReturnTableAdapter;
         private System.Windows.Forms.BindingSource registerReturnBindingSource;
-        private System.Windows.Forms.TextBox booking_NumberTextBox;
-        private System.Windows.Forms.TextBox personal_NumberTextBox;
-        private System.Windows.Forms.TextBox vehicle_CategoryTextBox;
-        private System.Windows.Forms.DateTimePicker dateDateTimePicker;
-        private System.Windows.Forms.TextBox timeTextBox;
-        private System.Windows.Forms.TextBox current_DistanceTextBox;
-        private System.Windows.Forms.TextBox booking_NumberTextBox1;
-        private System.Windows.Forms.DateTimePicker dateDateTimePicker1;
-        private System.Windows.Forms.TextBox timeTextBox1;
-        private System.Windows.Forms.TextBox current_DistanceTextBox1;
         private VehicleDatabaseDataSetCost vehicleDatabaseDataSetCost;
         private System.Windows.Forms.BindingSource registerReturnBindingSource1;
         private VehicleDatabaseDataSetCostTableAdapters.RegisterReturnTableAdapter registerReturnTableAdapter1;
         private VehicleDatabaseDataSetCostTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.DataGridView registerReturnDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookingNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentDistance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentBookingNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentPersonalNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentVehicleCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentCurrentDistance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookingNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentDistance;
+        private System.Windows.Forms.DataGridViewButtonColumn Calculate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
     }
 }
 
